@@ -1,6 +1,8 @@
-const { Client, RemoteAuth } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal');
-const { db, doc, setDoc, getDoc } = require('./firebaseConfig');
+import pkg from 'whatsapp-web.js';
+const { Client, RemoteAuth } = pkg;
+
+import qrcode from 'qrcode-terminal';
+import { db, doc, setDoc, getDoc } from './firebaseConfig.js';
 
 const clientId = 'user123';
 
@@ -9,7 +11,7 @@ class FirebaseStore {
         this.clientId = clientId;
     }
 
-    async sessionExists({ session }) {
+    sessionExists = async ({ session }) => {
         try {
             const sessionRef = doc(db, 'whatsappSessions', `${this.clientId}_${session}`);
             const sessionDoc = await getDoc(sessionRef);
@@ -20,7 +22,7 @@ class FirebaseStore {
         }
     }
 
-    async getSession({ session }) {
+    getSession = async ({ session }) => {
         try {
             const sessionRef = doc(db, 'whatsappSessions', `${this.clientId}_${session}`);
             const sessionDoc = await getDoc(sessionRef);
@@ -35,7 +37,7 @@ class FirebaseStore {
         }
     }
 
-    async setSession({ session, data }) {
+    setSession = async ({ session, data }) => {
         try {
             const sessionRef = doc(db, 'whatsappSessions', `${this.clientId}_${session}`);
             if (data && typeof data === 'object') {
@@ -50,7 +52,7 @@ class FirebaseStore {
         }
     }
 
-    async removeSession({ session }) {
+    removeSession = async ({ session }) => {
         try {
             const sessionRef = doc(db, 'whatsappSessions', `${this.clientId}_${session}`);
             await setDoc(sessionRef, {});
@@ -60,7 +62,7 @@ class FirebaseStore {
         }
     }
 
-    async save({ session, data }) {
+    save = async ({ session, data }) => {
         return this.setSession({ session, data });
     }
 }
