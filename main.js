@@ -37,6 +37,9 @@ client.on('message_create', message => {
     if (message.body === 'mice') {
         message.delete(true)
     }
+    if (message.body === 'mice') {
+        message.delete(true)
+    }
 });
 
 
