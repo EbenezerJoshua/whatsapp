@@ -11,13 +11,15 @@ if (fs.existsSync(SESSION_FILE_PATH)) {
     sessionData = require(SESSION_FILE_PATH);
 }
 
+let clientid = "client-one";
+
 const client = new Client({
     puppeteer: {
         headless: false, // false makes the browser visible. If you close the browser, the session will get closed
         args: [ '--no-sandbox', '--disable-gpu', ],
     },
     authStrategy: new LocalAuth({
-        clientId: "client-one" // Identifier for the client
+        clientId: `${clientid}` // Identifier for the client
     })
 });
 
