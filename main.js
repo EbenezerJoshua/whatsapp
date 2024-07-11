@@ -1,17 +1,35 @@
+const fs = require('fs');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
-let userID = "dad"
+
+const SESSION_FILE_PATH = './session.json';
+
+// Load session data if it exists
+let sessionData;
+if (fs.existsSync(SESSION_FILE_PATH)) {
+    sessionData = require(SESSION_FILE_PATH);
+}
+
+// const client = new Client({
+//     puppeteer: {
+//         headless: true, // false makes the browser visible. If you close the browser, the session will get closed
+//         args: [ '--no-sandbox', '--disable-gpu', ],
+//     },
+//     webVersionCache: { type: 'remote', remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html', },
+//     authStrategy: new LocalAuth ({
+//         clientId: `${userID}`,
+//     }),
+// });
 
 const client = new Client({
     puppeteer: {
-        headless: true, // false makes the browser visible. If you close the browser, the session will get closed
+        headless: false, // false makes the browser visible. If you close the browser, the session will get closed
         args: [ '--no-sandbox', '--disable-gpu', ],
     },
-    webVersionCache: { type: 'remote', remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html', },
-    authStrategy: new LocalAuth ({
-        clientId: `${userID}`,
-    }),
+    authStrategy: new LocalAuth({
+        clientId: "client-one" // Identifier for the client
+    })
 });
 
 client.on('ready', () => {
@@ -34,10 +52,7 @@ client.on('message_create', message => {
     if (message.body === 'Hi') {
         message.react("😍");
     }
-    if (message.body === 'mice') {
-        message.delete(true)
-    }
-    if (message.body === 'mice') {
+    if (message.body === 'mices') {
         message.delete(true)
     }
 });
