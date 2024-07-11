@@ -1,3 +1,2 @@
-2024/07/09-16:01:24.551 510 Reusing MANIFEST C:\Users\ebene\Desktop\Ebenezer Joshua\Developer\Whatsapp Experiments\wasample\.wwebjs_auth\session-dad\Default\shared_proto_db\metadata/MANIFEST-000001
-2024/07/09-16:01:24.552 510 Recovering log #3
-2024/07/09-16:01:24.553 510 Reusing old log C:\Users\ebene\Desktop\Ebenezer Joshua\Developer\Whatsapp Experiments\wasample\.wwebjs_auth\session-dad\Default\shared_proto_db\metadata/000003.log 
+2024/07/11-10:53:57.975 7064 Creating DB C:\Users\ebene\Desktop\Ebenezer Joshua\Developer\Whatsapp Experiments\wasample\.wwebjs_auth\session-dad\Default\shared_proto_db\metadata since it was missing.
+2024/07/11-10:53:57.987 7064 Reusing MANIFEST C:\Users\ebene\Desktop\Ebenezer Joshua\Developer\Whatsapp Experiments\wasample\.wwebjs_auth\session-dad\Default\shared_proto_db\metadata/MANIFEST-000001
