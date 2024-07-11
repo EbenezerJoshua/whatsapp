@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon main.js"
+    "start": "bun --watch main.js"
   },
   "keywords": [],
   "author": "",
